@@ -1,9 +1,10 @@
 const express = require("express")
+const keys = require("./google-api-credentials.json")
 //initilize express
 const app = express()
 require("dotenv").config()
 const port = process.env.PORT
-const keys = require("./keys.json")
+
 //googleapis
 const { google } = require("googleapis")
 
@@ -20,7 +21,7 @@ app.use(function (req, res, next) {
 })
 
 const auth = new google.auth.GoogleAuth({
-  keyFile: "keys.json", //the key file
+  keyFile: "google-api-credentials.json", //the key file
   //url to spreadsheets API
   scopes: "https://www.googleapis.com/auth/spreadsheets",
 })

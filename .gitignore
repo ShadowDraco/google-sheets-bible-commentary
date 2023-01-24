@@ -1,6 +1,7 @@
 # Logs
 
 keys.json
+google-api-credentials.json
 
 logs
 *.log

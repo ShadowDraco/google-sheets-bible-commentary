@@ -8,9 +8,10 @@
     "dev": "nodemon server.js",
     "server": "node server.js",
     "client": "cd ../client && npm start",
+    "prebuild": "node generate-google-api-credentials.js",
     "build": "cd ../client  && npm i && npm run build",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "start-dev": "concurrently \"npm run dev\" \"npm run client\""
+    "start-dev": "npm run prebuild && concurrently \"npm run dev\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
+    "google-auth-library": "^8.7.0",
     "googleapis": "^110.0.0"
   },
   "devDependencies": {

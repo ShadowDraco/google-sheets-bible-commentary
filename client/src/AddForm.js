@@ -39,7 +39,7 @@ export default function AddForm() {
   }
 
   return (
-    <Container className="bg-gradient bg-gray">
+    <Container className="bg-gradient bg-gray mt-2 pt-2">
       <Form
         onSubmit={handleSubmit}
         className=" mt-5 flex flex-wrap flex-center"
