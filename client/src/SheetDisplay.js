@@ -8,8 +8,8 @@ export default function SheetDisplay() {
 
   return (
     <Container fluid className="mt-5 -grid">
-      {sheetData?.values.map(row => {
-        return <SheetRow key={`${row[0]} ${row[1]}`} row={row} />
+      {sheetData?.values.map((row, i) => {
+        return <SheetRow key={`${row[0]} ${i}`} row={row} />
       })}
     </Container>
   )

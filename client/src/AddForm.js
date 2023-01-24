@@ -11,9 +11,7 @@ export default function AddForm() {
 
   useEffect(() => {
     axios
-      .post("https://bible-commentary.herokuapp.com/read", {
-        message: "posting",
-      })
+      .post("http://localhost:8000/read", { message: "message" })
       .then(res => {
         console.log(res.data)
         setSheetData(res.data)
@@ -24,7 +22,7 @@ export default function AddForm() {
     e.preventDefault()
 
     axios
-      .post("https://bible-commentary.herokuapp.com", {
+      .post("http://localhost:8000/", {
         time: new Date().toLocaleTimeString(),
         book: e.target[0].value,
         chapter: e.target[1].value,
