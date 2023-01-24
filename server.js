@@ -4,6 +4,10 @@ const path = require("path")
 //initilize express
 const app = express()
 require("dotenv").config()
+
+//googleapis
+const { google } = require("googleapis")
+
 let port = process.env.PORT
 if (port == null || port == "") {
   port = 8000
@@ -15,9 +19,6 @@ if (process.env.NODE_ENV === "production") {
     resp.sendFile(path.join(__dirname, "client", "build", "index.html"))
   })
 }
-
-//googleapis
-const { google } = require("googleapis")
 
 app.use(express.urlencoded({ extended: true, limit: "5mb" }))
 app.use(express.json({ limit: "5mb" })) // limit allows for larger requests
@@ -51,6 +52,7 @@ const googleSheetsInstance = google.sheets({
 const spreadsheetId = process.env.SHEET_ID
 
 app.post("/", async (req, res) => {
+  console.log("home route accessed")
   const {
     time,
     book,

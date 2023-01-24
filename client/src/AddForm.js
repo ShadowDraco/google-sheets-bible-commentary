@@ -10,7 +10,7 @@ export default function AddForm() {
   const { setSheetData } = useContext(SheetContext)
 
   useEffect(() => {
-    axios.get("https://bible-commentary.herokuapp.com/read").then(res => {
+    axios.get("http://localhost:8000/read").then(res => {
       setSheetData(res.data)
       console.log(res.data)
     })
@@ -20,7 +20,7 @@ export default function AddForm() {
     e.preventDefault()
 
     axios
-      .post("https://bible-commentary.herokuapp.com/", {
+      .post("http://localhost:8000/", {
         time: new Date().toLocaleTimeString(),
         book: e.target[0].value,
         chapter: e.target[1].value,
