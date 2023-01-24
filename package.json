@@ -8,8 +8,8 @@
     "prebuild": "node generate-google-api-credentials.js && npm i && cd ./client && npm i",
     "start-dev": "npm run prebuild && concurrently \"npm run dev\" \"npm run client\"",
     "dev": "nodemon server.js",
-    "server": "npm i && node server.js",
-    "client": "cd ./client && npm i && npm start",
+    "server": "npm node server.js",
+    "client": "cd ./client && npm start",
     "build": "npm run start",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
