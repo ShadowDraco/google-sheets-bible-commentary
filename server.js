@@ -110,5 +110,5 @@ app.get("/read", async (req, res) => {
 })
 
 app.listen(port, (req, res) => {
-  console.log("listening!")
+  console.log(`listening on port ${port} <------------====`)
 })
