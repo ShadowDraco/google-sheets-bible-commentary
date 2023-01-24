@@ -3,7 +3,7 @@ const keys = require("./google-api-credentials.json")
 //initilize express
 const app = express()
 require("dotenv").config()
-const port = process.env.PORT
+let port = process.env.PORT
 if (port == null || port == "") {
   port = 8000
 }
