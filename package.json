@@ -9,8 +9,8 @@
     "start-dev": "npm run prebuild && concurrently \"npm run dev\" \"npm run client\"",
     "dev": "nodemon server.js",
     "server": "node server.js",
-    "client": "cd ./client && npm start",
-    "build": "npm run start",
+    "client": "cd ./client && npm run build && npm start",
+    "build": "cd ./client && npm run build && npm run start",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
