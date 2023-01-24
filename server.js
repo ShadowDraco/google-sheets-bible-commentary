@@ -100,7 +100,7 @@ app.post("/", async (req, res) => {
   res.send(readData.data)
 })
 
-app.get("/read", async (req, res) => {
+app.post("/read", async (req, res) => {
   console.log("reading from sheet")
   //Read front the spreadsheet
   const readData = await googleSheetsInstance.spreadsheets.values.get({

@@ -10,9 +10,9 @@ export default function AddForm() {
   const { setSheetData } = useContext(SheetContext)
 
   useEffect(() => {
-    axios.get("https://bible-commentary.herokuapp.com/read").then(res => {
-      setSheetData(res.data)
+    axios.post("https://bible-commentary.herokuapp.com/read").then(res => {
       console.log(res.data)
+      setSheetData(res.data)
     })
   }, [])
 
