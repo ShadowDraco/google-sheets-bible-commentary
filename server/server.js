@@ -4,6 +4,16 @@ const keys = require("./google-api-credentials.json")
 const app = express()
 require("dotenv").config()
 const port = process.env.PORT
+if (port == null || port == "") {
+  port = 8000
+}
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "client", "build")))
+  app.get("*", (req, resp) => {
+    resp.sendFile(path.join(__dirname, "client", "build", "index.html"))
+  })
+}
 
 //googleapis
 const { google } = require("googleapis")

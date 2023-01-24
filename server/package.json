@@ -5,13 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "node generate-google-api-credentials.js",
+    "start-dev": "npm run prebuild && concurrently \"npm run dev\" \"npm run client\"",
     "dev": "nodemon server.js",
     "server": "node server.js",
-    "client": "cd ../client && npm start",
-    "prebuild": "node generate-google-api-credentials.js",
-    "build": "cd ../client  && npm i && npm run build",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
-    "start-dev": "npm run prebuild && concurrently \"npm run dev\" \"npm run client\""
+    "client": "cd ./client && npm start",
+    "build": "cd ./client  && npm i && npm run build",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -23,7 +23,11 @@
     "express": "^4.18.2",
     "fs": "^0.0.1-security",
     "google-auth-library": "^8.7.0",
-    "googleapis": "^110.0.0"
+    "googleapis": "^110.0.0",
+    "path": "^0.12.7"
+  },
+  "engines": {
+    "node": "16.x"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
