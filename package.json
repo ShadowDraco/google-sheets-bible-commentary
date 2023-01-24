@@ -10,7 +10,7 @@
     "dev": "nodemon server.js",
     "server": "npm i && node server.js",
     "client": "cd ./client && npm i && npm start",
-    "build": "cd ./client  && npm i && npm run build",
+    "build": "cd ./client  && npm run build",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
