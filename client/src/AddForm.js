@@ -10,17 +10,21 @@ export default function AddForm() {
   const { setSheetData } = useContext(SheetContext)
 
   useEffect(() => {
-    axios.post("https://bible-commentary.herokuapp.com/read").then(res => {
-      console.log(res.data)
-      setSheetData(res.data)
-    })
+    axios
+      .post("https://bible-commentary.herokuapp.com/read", {
+        message: "posting",
+      })
+      .then(res => {
+        console.log(res.data)
+        setSheetData(res.data)
+      })
   }, [])
 
   async function handleSubmit(e) {
     e.preventDefault()
 
     axios
-      .post("https://bible-commentary.herokuapp.com/", {
+      .post("https://bible-commentary.herokuapp.com", {
         time: new Date().toLocaleTimeString(),
         book: e.target[0].value,
         chapter: e.target[1].value,
