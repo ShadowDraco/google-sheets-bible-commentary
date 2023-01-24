@@ -5,12 +5,12 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prebuild": "node generate-google-api-credentials.js",
+    "prebuild": "node generate-google-api-credentials.js && npm i && cd ./client && npm i",
     "start-dev": "npm run prebuild && concurrently \"npm run dev\" \"npm run client\"",
     "dev": "nodemon server.js",
     "server": "npm i && node server.js",
     "client": "cd ./client && npm i && npm start",
-    "build": "cd ./client  && npm run build",
+    "build": "npm run start",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
