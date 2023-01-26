@@ -82,7 +82,7 @@ app.post('/', async (req, res) => {
 	const readData = await googleSheetsInstance.spreadsheets.values.get({
 		auth, //auth object
 		spreadsheetId, // spreadsheet id
-		range: 'Sheet1!B:E', //range of cells to read from.
+		range: 'Sheet1!B:F', //range of cells to read from.
 	})
 
 	//send the data read with the response
