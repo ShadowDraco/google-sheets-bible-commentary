@@ -47,6 +47,11 @@ button {
 	margin-bottom: 1em;
 	display: flex;
 	flex-wrap: wrap;
+	transition: 500ms;
+}
+
+.-row:hover {
+	background-color: rgb(104, 107, 109);
 }
 
 .-col {
