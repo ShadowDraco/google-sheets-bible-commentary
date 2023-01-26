@@ -66,13 +66,11 @@ button {
 }
 
 .col-2 {
-	min-width: 50%;
-	max-width: 50%;
+	width: 50%;
 }
 
 .col-3 {
-	min-width: 40%;
-	max-width: 50%;
+	width: 49%;
 }
 
 .col-4 {
