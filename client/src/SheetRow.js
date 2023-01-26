@@ -10,7 +10,7 @@ export default function SheetRow(props) {
 					? props.row.map((col, i) => {
 							return (
 								<Container key={`${col} ${i}`} className={`-col col-${i}`}>
-									{col} filtered
+									{col}
 								</Container>
 							)
 					  })
