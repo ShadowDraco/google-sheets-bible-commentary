@@ -7,13 +7,31 @@ body {
 }
 
 .AddForm {
-	margin-top: 5em;
 	border: 2px gray groove;
+}
+
+select {
+	max-width: 20%;
+	margin-left: 2em;
+	margin-right: 2em;
+}
+
+.AddForm {
+	padding-top: 2em;
 }
 
 .AddForm div,
 button {
 	margin: 5px;
+}
+
+.PastorNotes {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 95%;
+	max-height: 80%;
+	overflow-y: scroll;
+	z-index: 2;
 }
 
 .bg-gray {
@@ -32,14 +50,13 @@ button {
 	display: flex;
 	flex-direction: column;
 	padding: 1em;
+	padding-bottom: 0;
 
-	max-height: 60%;
 	overflow-y: scroll;
-
-	border: 3px black groove;
-	border-bottom: none;
 	overflow-x: auto;
 
+	max-height: 50vh;
+	border: 3px black groove;
 	font-size: large;
 }
 

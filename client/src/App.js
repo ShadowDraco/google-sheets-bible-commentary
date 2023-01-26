@@ -1,28 +1,37 @@
-import { useState, createContext } from "react"
+import { useState, createContext } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-import AddForm from "./AddForm"
-import SheetDisplay from "./SheetDisplay"
-import "./App.css"
+import Home from './Components/Pages/Home'
+import PastorNotes from './Components/Pages/PastorNotes'
+import About from './Components/Pages/About'
+import BibleNavbar from './Components/Pages/BibleNavbar'
 
-import Container from "react-bootstrap/Container"
+import './App.css'
+
+import Container from 'react-bootstrap/Container'
 
 export const SheetContext = createContext()
 
 function App() {
-  const [sheetData, setSheetData] = useState()
+	const [sheetData, setSheetData] = useState()
 
-  return (
-    <SheetContext.Provider value={{ sheetData, setSheetData }}>
-      <Container
-        fluid
-        className="App bg-gradient bg-secondary text-light m-0 p-0"
-      >
-        <h1 className="text-center pt-5"> Bible - Commentary ! </h1>
-        <SheetDisplay />
-        <AddForm />
-      </Container>
-    </SheetContext.Provider>
-  )
+	return (
+		<Container
+			fluid
+			className='App bg-gradient bg-secondary text-light m-0 p-0'
+		>
+			<SheetContext.Provider value={{ sheetData, setSheetData }}>
+				<Router>
+					<BibleNavbar />
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/notes' element={<PastorNotes />} />
+						<Route path='/about' element={<About />} />
+					</Routes>
+				</Router>
+			</SheetContext.Provider>
+		</Container>
+	)
 }
 
 export default App
