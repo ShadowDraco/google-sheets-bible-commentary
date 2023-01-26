@@ -51,6 +51,14 @@ const googleSheetsInstance = google.sheets({
 
 const spreadsheetId = process.env.SHEET_ID
 
+const readData = async () => {
+	await googleSheetsInstance.spreadsheets.values.get({
+		auth, //auth object
+		spreadsheetId, // spreadsheet id
+		range: 'Sheet1!B:F', //range of cells to read from.
+	})
+}
+
 app.post('/', async (req, res) => {
 	console.log('home route accessed')
 	const { time, book, verses, name, commentary, interpretation, source } =
@@ -79,25 +87,16 @@ app.post('/', async (req, res) => {
 	})
 
 	//Read front the spreadsheet
-	const readData = await googleSheetsInstance.spreadsheets.values.get({
-		auth, //auth object
-		spreadsheetId, // spreadsheet id
-		range: 'Sheet1!B:F', //range of cells to read from.
-	})
-
+	let data = readData()
 	//send the data read with the response
-	res.send(readData.data)
+	res.send(data)
 })
 
 app.post('/read', async (req, res) => {
 	console.log('reading from sheet')
 	//Read front the spreadsheet
-	const readData = await googleSheetsInstance.spreadsheets.values.get({
-		auth, //auth object
-		spreadsheetId, // spreadsheet id
-		range: 'Sheet1!B:E', //range of cells to read from.
-	})
-	res.send(readData.data)
+	let data = readData()
+	res.send(data)
 })
 
 app.listen(port, (req, res) => {
