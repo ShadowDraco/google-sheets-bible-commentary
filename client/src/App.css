@@ -36,7 +36,8 @@ button {
 	max-height: 60%;
 	overflow-y: scroll;
 
-	border: 2px black groove;
+	border: 3px black groove;
+	border-bottom: none;
 	overflow-x: auto;
 
 	font-size: large;

@@ -5,7 +5,7 @@ export default function SheetRow(props) {
 	return (
 		<Container fluid className='-row'>
 			{props.filtering === true
-				? props.row[0].split(' ')[0].trim().toLowerCase() ===
+				? props?.row[0]?.split(' ')[0].trim().toLowerCase() ===
 				  props.currentBook.toLowerCase()
 					? props.row.map((col, i) => {
 							return (
